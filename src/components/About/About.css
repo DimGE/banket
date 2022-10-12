@@ -1,0 +1,22 @@
+.about{
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    background-color: #D1D6DD;
+    align-items: center;
+    width: 100%;
+}
+.about--title{
+    text-align: center;
+    font-size: 35px;
+    font-weight: lighter;
+}
+.about--info{
+    text-align: justify;
+    /*width: 1000px;*/
+    min-width: 400px;
+    margin: 0px 100px 100px 100px;
+}
+.about--text{
+    font-size: 17px;
+}

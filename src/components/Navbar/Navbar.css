@@ -1,0 +1,46 @@
+.nav{
+    margin: 0;
+    background-color: #265D6F;
+    display: flex;
+    justify-content: space-between;
+}
+.nav--logo{
+    display: flex;
+}
+
+.logo--img{
+    margin: 10px;
+}
+
+.logo--text{
+    color: #EBC59F;
+    display: flex;
+    width: 215px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    margin-bottom: 0;
+    align-items: center;
+}
+.nav--login{
+    align-items: center;
+    margin-right: 20px;
+    display: flex;
+    color: #EBC59F;
+    gap: 25px;
+}
+.login--text{
+    width: 100px;
+    height: 30px;
+    color: #265D6E;
+    background: #EBC59F;
+    text-align: center;
+    font-weight: bold;
+}
+.login--sign{
+    margin-top: 7px;
+}
+.login--sign:hover{
+    cursor: pointer;
+}
