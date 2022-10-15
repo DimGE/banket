@@ -12,3 +12,7 @@ body{
     min-width: 500px;
     /*width: 100%;*/
 }
+.App{
+    width: 100%;
+    /*display: flex;*/
+}

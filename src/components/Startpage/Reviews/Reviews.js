@@ -1,6 +1,6 @@
 import React from "react";
 import "./Reviews.css"
-import star from "../../img/star.png"
+import star from "../../../img/StartPageImg/star.png"
 
 const Reviews= ()=>{
     return(

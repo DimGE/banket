@@ -1,9 +1,9 @@
 import React from "react";
 import  "./Offer.css"
-import offer1 from "../../img/offer1.png"
-import offer2 from "../../img/offer2.png"
-import offer3 from "../../img/offer3.png"
-import offer4 from "../../img/offer4.png"
+import offer1 from "../../../img/StartPageImg/offer1.png"
+import offer2 from "../../../img/StartPageImg/offer2.png"
+import offer3 from "../../../img/StartPageImg/offer3.png"
+import offer4 from "../../../img/StartPageImg/offer4.png"
 
 const Reviews= ()=>{
     return(

@@ -1,22 +1,16 @@
 import './App.css';
-import Navbar from "./components/Navbar/Navbar";
-import Header from "./components/Header/Header";
-import About from "./components/About/About";
-import WhyUs from "./components/WhyUs/WhyUs";
-import Reviews from "./components/Reviews/Reviews";
-import Offer from "./components/Offer/Offer";
-import Footer from "./components/Footer/Footer";
+import StartPage from "./components/Startpage/StartPage";
+import SignUp from "./components/SignUp/SignUp";
+import LogIn from "./components/LogIn/LogIn";
+import Footer from "./components/Startpage/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <Header/>
-      <About/>
-      <WhyUs/>
-      <Reviews/>
-      <Offer/>
-      <Footer/>
+        <StartPage/>
+        {/*<SignUp/>*/}
+        {/*<LogIn/>*/}
+        {/*<Footer/>*/}
       </div>
   );
 }
