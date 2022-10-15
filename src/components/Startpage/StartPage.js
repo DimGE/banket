@@ -10,13 +10,13 @@ import Footer from "./Footer/Footer";
 const StartPage = () =>{
     return(
         <div className="startpage">
-            <Navbar/>
+            {/*<Navbar/>*/}
             <Header/>
             <About/>
             <WhyUs/>
             <Reviews/>
             <Offer/>
-            <Footer/>
+            {/*<Footer/>*/}
         </div>
     )
 }

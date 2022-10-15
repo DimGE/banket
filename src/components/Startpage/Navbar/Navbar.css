@@ -32,15 +32,22 @@
 }
 .login--text{
     width: 100px;
-    height: 30px;
+    /*height: 30px;*/
     color: #265D6E;
     background: #EBC59F;
     text-align: center;
     font-weight: bold;
+    padding: 7px 0 7px 0;
+}
+.login--text:hover{
+    transition: 0.5s;
+    background: rgba(149, 151, 154, 0.96);
 }
 .login--sign{
+    text-decoration: none;
     margin-top: 7px;
 }
 .login--sign:hover{
     cursor: pointer;
+    color: white;
 }
