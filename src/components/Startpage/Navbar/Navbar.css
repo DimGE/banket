@@ -3,6 +3,8 @@
     background-color: #265D6F;
     display: flex;
     justify-content: space-between;
+    /*gap: 100%;*/
+    width: 100%;
 }
 .nav--logo{
     display: flex;
@@ -11,7 +13,6 @@
 .logo--img{
     margin: 10px;
 }
-
 .logo--text{
     color: #EBC59F;
     display: flex;
@@ -22,6 +23,9 @@
     font-size: 27px;
     margin-bottom: 0;
     align-items: center;
+}
+.logo--text:hover{
+    color: white;
 }
 .nav--login{
     align-items: center;

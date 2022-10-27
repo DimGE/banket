@@ -13,10 +13,11 @@
 
 .offer--items{
     font-size: 20px;
-    width: 1200px;
+    /*width: 1200px;*/
     display: flex;
+    flex-wrap: wrap;
     column-gap: 20px;
-    /*justify-content: center;*/
+    justify-content: center;
 }
 .offer--card{
     width: 300px;
@@ -48,6 +49,10 @@
 }
 .offer--button:hover{
     cursor: pointer;
+    transition: all 0.5s;
+    background: rgba(18,51,87,0.96);
+    color: #FFFFFF;
+
 }
 .button--text{
     font-size: 30px;

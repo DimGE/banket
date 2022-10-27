@@ -8,6 +8,7 @@ import offer4 from "../../../img/StartPageImg/offer4.png"
 const Reviews= ()=>{
     return(
         <div className="offer">
+
             <p className="offer--title"> Предложения</p>
             <div className="offer--items">
                 <div className="offer--card">

@@ -1,19 +1,26 @@
+
+.container{
+
+}
 .why{
-    display: flex;
+    display: inline-block;
     background-color: #9FB8C6;
     flex-direction: column;
     color: white;
     align-items: center;
+    width: 100%;
 }
 
 .why--text {
-    margin-top: 45px;
+    /*margin-top: 45px;*/
+    text-align: center;
     font-size: 37px;
     font-weight: lighter;
 }
 .why--cards{
-    width: 1200px;;
     display: flex;
+    flex-wrap: wrap;
+    /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr;*/
     gap: 150px;
     justify-content: center;
 }

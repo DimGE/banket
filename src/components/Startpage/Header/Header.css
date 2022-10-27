@@ -10,7 +10,7 @@
 
 }
 .header--text{
-    width: 950px;
+    max-width: 800px;
     left: 45px;
     top: 300px;
     margin-top: 0;

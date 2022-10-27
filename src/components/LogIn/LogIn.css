@@ -1,9 +1,12 @@
 .container--login{
+
+    /*max-width: 100%;*/
+
     display: flex;
     position: relative;
     background-image: url("../../img/StartPageImg/background_header.png");
     background-size: cover;
-    /*width: 1600px;*/
+    /*width: 1700px;*/
     height: 720px;
     /*height: 500px;*/
     /*background: rgba(6, 46, 58, 0.5);*/
@@ -11,7 +14,6 @@
     justify-content: center;
 
 }
-
 .container--login:after {
     content: '';
     position: absolute;
@@ -41,7 +43,7 @@ a:hover{
     border-radius: 0 0 10px 10px;
 }
 
-input[type="text"],input[type="password"]{
+input[type="text"],input[type="email"],input[type="password"]{
     padding-left: 30px;
     border: none;
     width: 300px;

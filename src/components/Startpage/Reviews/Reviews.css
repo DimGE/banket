@@ -50,6 +50,9 @@ span{
 }
 .reviews--button:hover{
     cursor: pointer;
+    transition: all 0.4s;
+    background: rgba(18,51,87,0.96);
+    color: #FFFFFF;
 }
 
 .button--text{
