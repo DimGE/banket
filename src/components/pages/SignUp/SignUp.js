@@ -20,13 +20,14 @@ const SignUp = ()=>{
 
     }
     function handleSubmit(event){
+        console.log(event.target.value)
         event.preventDefault()
         console.log(info)
     }
     return(
         <div className="container--signup">
             <div className="signup">
-                <form   onSubmit={handleSubmit} className="signup--form" action="">
+                <form   onSubmit={handleSubmit} className="signup--form" action="src/components/pages/SignUp/SignUp">
                     <div className="signup--input">
                         <input
                             type="text"

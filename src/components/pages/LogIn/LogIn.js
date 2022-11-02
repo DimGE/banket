@@ -7,7 +7,7 @@ const LogIn = () => {
     return (
         <div className="container--login">
             <div className="login">
-                <form className="login--form" action="">
+                <form className="login--form" action="src/components/pages/LogIn/LogIn">
                     <div className="login--input">
                         <input type="email" name="username" placeholder="Введите электронную почту" required="required"/>
                     </div>
@@ -16,7 +16,7 @@ const LogIn = () => {
                     </div>
                     <input className="login--button" type="submit" name="submit" value="ВОЙТИ"/>
                     <br/>
-                    <a href="#">Восстановление пароля</a>
+                    <a href="src/components/pages/LogIn/LogIn#">Восстановление пароля</a>
                 </form>
                 <div className="login--social">
                 <i className="fa fa-vk" aria-hidden="true"></i>

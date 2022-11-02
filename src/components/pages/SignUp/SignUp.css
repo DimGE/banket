@@ -1,12 +1,9 @@
-.container--login{
-
-    /*max-width: 100%;*/
-
+.container--signup{
     display: flex;
     position: relative;
-    background-image: url("../../img/StartPageImg/background_header.png");
+    background-image: url("../../../img/StartPageImg/background_header.png");
     background-size: cover;
-    /*width: 1700px;*/
+    /*width: 1600px;*/
     height: 720px;
     /*height: 500px;*/
     /*background: rgba(6, 46, 58, 0.5);*/
@@ -14,7 +11,7 @@
     justify-content: center;
 
 }
-.container--login:after {
+.container--signup:after {
     content: '';
     position: absolute;
     top: 0;
@@ -22,7 +19,6 @@
     right: 0;
     bottom: 0;
     background: rgba(6, 46, 58, 0.5);
-    /*color: rgba(38,93,111,0.96);*/
     z-index: 1;
 }
 a {
@@ -32,18 +28,18 @@ a:hover{
     text-decoration: none;
 }
 
-.login{
+.signup{
     z-index: 3;
     width: 450px;
     height: 500px;
     background-color: rgba(209,214,221,0.9);
     /*margin: 100px auto 100px auto;*/
     text-align: center;
-    box-shadow: 0px 0px 100px #000000;
     border-radius: 0 0 10px 10px;
+    box-shadow: 0px 0px 100px #000000;
 }
 
-input[type="text"],input[type="email"],input[type="password"]{
+input[type="text"],input[type="password"]{
     padding-left: 30px;
     border: none;
     width: 300px;
@@ -55,7 +51,7 @@ input[type="text"],input[type="email"],input[type="password"]{
 
 }
 
-.login--input:before{
+.signup--input:before{
     font-family: "FontAwesome";
     content: "\f007";
     position: absolute;
@@ -63,21 +59,32 @@ input[type="text"],input[type="email"],input[type="password"]{
     padding: 45px 0 0 5px;
     color: #265D6E;
 }
-.login--input:nth-child(2):before{
+
+.signup--input:nth-child(3):before{
+    content: "\f0e0";
+    padding-top: 49px;
+    font-size: 23px;
+}
+/*.signup--input:nth-child(3):before{*/
+/*    content: "\f095";*/
+/*    padding-top: 49px;*/
+/*    font-size: 23px;*/
+/*}*/
+.signup--input:nth-child(4):before{
     content: "\f023";
 }
 
-.login--input:hover:before{
+.signup--input:hover:before{
     transition: 0.4s;
     color: rgba(84,97,221,0.96);
 }
 
-.login--input input:hover{
+.signup--input input:hover{
     box-shadow:0 0 6px rgba(74,113,221,0.5);;
 }
 
 
-.login--button{
+.signup--button{
     padding: 13px 30px;
     margin: 25px 0 20px 0  ;
     font-size: 22px;
@@ -88,26 +95,33 @@ input[type="text"],input[type="email"],input[type="password"]{
     cursor: pointer;
 }
 
-.login--button:hover{
+.signup--button:hover{
     transition: all 0.5s;
     background: rgba(18,51,87,0.96);
     color: #FFFFFF;
 }
-.login--social{
+.signup--social{
     padding-top: 30px;
 }
 
-.login--social i{
+.signup--social i{
     color: #265D6E;
     font-size: 30px;
     padding: 15px;
     width: 30px;
 }
 
-.login--social i:hover{
+.signup--social i:hover{
     transition: 0.3s;
     background-color: rgba(38,93,110);
     color: #EBC59F ;
     border-radius: 5px;
     cursor: pointer;
+}
+.sign--status{
+    padding: 15px;
+    color: white;
+    font-size: 20px;
+    /*color: rgba(15,111,56,0.96);*/
+    border: solid 1px  blue;
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import "./WhyUs.css"
-import geopoz from "../../../img/StartPageImg/geopozition.png"
-import money from "../../../img/StartPageImg/money.png"
-import man from "../../../img/StartPageImg/man.png"
-import flame from "../../../img/StartPageImg/flame.png"
+import geopoz from "../../../../img/StartPageImg/geopozition.png"
+import money from "../../../../img/StartPageImg/money.png"
+import man from "../../../../img/StartPageImg/man.png"
+import flame from "../../../../img/StartPageImg/flame.png"
 
 const WhyUs = () => {
     return (
