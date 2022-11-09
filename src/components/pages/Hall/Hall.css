@@ -1,11 +1,14 @@
 .hall {
 
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    /*flex-direction: row;*/
     justify-content: center;
+    align-items: center;
     padding-bottom: 100px;
     background: #D1D6DD;
     text-align: center;
+    column-gap: 100px;
 }
 
 
@@ -13,7 +16,10 @@
     display: flex;
     justify-content: center;
 }
-
+.tables{
+    width: 100%;
+    max-width: 1000px;
+}
 .tb1 {
     display: flex;
     margin: 60px;
@@ -43,6 +49,7 @@
     width: 100px;
     height: 285px;
     background-color: #265D6E;
+    margin: 50px 50px 50px 50px;
     color: white;
     display: flex;
     align-items: center;
@@ -66,7 +73,7 @@
 }
 
 .hall-third{
-    margin-top: 100px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -74,6 +81,7 @@
 }
 
 .tb4{
+    margin: 50px 50px 50px 50px;
     width: 285px;
     height: 100px;
     background-color: #265D6E;
@@ -83,6 +91,7 @@
     justify-content: center;
 }
 .tb5{
+    margin: 50px 50px 50px 50px;
     width: 285px;
     height: 100px;
     background-color: #265D6E;
@@ -92,18 +101,51 @@
     justify-content: center;
 }
 
-.hall-table2 {
+
+.form-place{
+    background-color: #9FB8C6;
+    display: flex;
+    /*max-width: 700px;*/
+    padding: 5px;
 
 }
-
-.hall-table3 {
-
+form{
+    margin: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    flex-wrap: wrap;
+    column-gap: 25px;
+    margin-bottom: 75px;
 }
 
-.hall-table4 {
-
+input[type="button"],input[type="submit"]{
+    width: 180px;
+    /*height: 30px;*/
+    color: #EBC59F;
+    background: #265D6E ;
+    text-align: center;
+    padding: 7px 0 7px 0;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 100px;
+    position: absolute;
+    font-weight: lighter;
+}
+#save{
+    margin-top: 820px;
+    margin-left: 80px;
+}
+#exit{
+    margin-top: 820px;
+    margin-left: 400px;
 }
 
-.hall-table5 {
-
+#save:hover,#exit:hover{
+    cursor: pointer;
+    transition: 0.5s;
+    background: rgba(149, 151, 154, 0.96);
+    color: white;
 }
+
+
+

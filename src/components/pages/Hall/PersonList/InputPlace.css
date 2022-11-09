@@ -1,0 +1,23 @@
+.input-place{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 0 ;
+}
+label{
+    margin: auto;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+input[type="text"] {
+    margin-top: 5px;
+    /*margin-left: 5px;*/
+    padding-left: 30px;
+    border: none;
+    width: 150px;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 4px;
+}
