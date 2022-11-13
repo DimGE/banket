@@ -11,19 +11,22 @@ function App() {
     return (
         <BrowserRouter >
             <div className="App">
-                {/*<Navbar/>*/}
+                <Navbar/>
+                {/*<SignUp/>*/}
                 {/*<StartPage/>*/}
-                {/*<Routes path="" element={<StartPage/>}>*/}
-                {/*    <Route path="/" element={<StartPage/>}/>*/}
-                {/*    <Route path="/startpage" element={<StartPage/>}/>*/}
-                {/*    <Route path="/signup" element={<SignUp/>}/>*/}
-                {/*    <Route path="/login" element={<LogIn/>}/>*/}
-                {/*    /!*<SignUp/>*!/*/}
-                {/*    /!*<LogIn/>*!/*/}
-                {/*    /!*<Footer/>*!/*/}
-                {/*</Routes>*/}
-                <Hall/>
-                {/*<Footer/>*/}
+                <Routes path="" element={<StartPage/>}>
+                    <Route path="/" element={<StartPage/>}/>
+                    <Route path="/startpage" element={<StartPage/>}/>
+                    <Route path="/signup" element={<SignUp/>}/>
+                    <Route path="/login" element={<LogIn/>}/>
+                    <Route path="/hall" element={<Hall/>}/>
+                    {/*<SignUp/>*/}
+                    {/*<LogIn/>*/}
+                    {/*<Footer/>*/}
+                </Routes>
+                {/*<Hall/>*/}
+
+                <Footer/>
             </div>
         </BrowserRouter>
     );

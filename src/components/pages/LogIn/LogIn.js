@@ -4,26 +4,61 @@ import "./font-awesome.css"
 import {NavLink} from "react-router-dom";
 
 const LogIn = () => {
+    const [info, setInfo] = React.useState({
+        email: "",
+        password: ""
+    })
+
+    function handleChange(event) {
+        const {name, value} = event.target
+        setInfo(prevInfo => ({
+            ...prevInfo,
+            [name]: value
+        }))
+
+    }
+
+    function handleSubmit(event) {
+        console.log(event.target.value)
+        event.preventDefault()
+    }
+
     return (
         <div className="container--login">
             <div className="login">
-                <form className="login--form" action="src/components/pages/LogIn/LogIn">
+                <form onSubmit={handleSubmit} className="login--form" action="src/components/pages/LogIn/LogIn">
                     <div className="login--input">
-                        <input type="email" name="username" placeholder="Введите электронную почту" required="required"/>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Введите электронную почту"
+                            required="required"
+                            onChange={handleChange}/>
                     </div>
                     <div className="login--input">
-                        <input type="password" name="password" placeholder="Введите пароль" required="required"/>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Введите пароль"
+                            required="required"
+                            onChange={handleChange}/>
                     </div>
-                    <input className="login--button" type="submit" name="submit" value="ВОЙТИ"/>
+                    <NavLink to="/hall">
+                    <input
+                        className="login--button"
+                        type="submit"
+                        name="submit"
+                        value="ВОЙТИ"/>
                     <br/>
-                    <a href="src/components/pages/LogIn/LogIn#">Восстановление пароля</a>
+                    </NavLink>
+                    <a href="src/components/pages/LogIn/LogIn">Восстановление пароля</a>
                 </form>
                 <div className="login--social">
-                <i className="fa fa-vk" aria-hidden="true"></i>
-                <i className="fa fa-google-plus" aria-hidden="true"></i>
-                <i className="fa fa-facebook" aria-hidden="true"></i>
-                <i className="fa fa-twitter" aria-hidden="true"></i>
-                <i className="fa fa-odnoklassniki" aria-hidden="true"></i>
+                    <i className="fa fa-vk" aria-hidden="true"></i>
+                    <i className="fa fa-google-plus" aria-hidden="true"></i>
+                    <i className="fa fa-facebook" aria-hidden="true"></i>
+                    <i className="fa fa-twitter" aria-hidden="true"></i>
+                    <i className="fa fa-odnoklassniki" aria-hidden="true"></i>
                 </div>
                 <p>Ещё нет аккаунт?<NavLink to="/signup">Зарегестрироватся</NavLink></p>
             </div>

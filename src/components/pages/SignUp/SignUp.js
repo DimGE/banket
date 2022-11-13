@@ -27,7 +27,7 @@ const SignUp = ()=>{
     return(
         <div className="container--signup">
             <div className="signup">
-                <form   onSubmit={handleSubmit} className="signup--form" action="src/components/pages/SignUp/SignUp">
+                <form   onSubmit={handleSubmit} className="signup--form" action="">
                     <div className="signup--input">
                         <input
                             type="text"

@@ -3,7 +3,7 @@ import './Place.css'
 
 const Place = (props) => {
     const styles = {
-        backgroundColor: props.isCheck ? "green" : "#265D6E"
+        backgroundColor: props.isCheck ? "green" : "#265D6E",
     }
     const clasName=`place n${props.value}`
     return (

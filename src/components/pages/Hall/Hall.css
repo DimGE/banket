@@ -109,7 +109,7 @@
     padding: 5px;
 
 }
-form{
+.hall form{
     margin: 25px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr ;
@@ -118,19 +118,20 @@ form{
     margin-bottom: 75px;
 }
 
-input[type="button"],input[type="submit"]{
-    width: 180px;
-    /*height: 30px;*/
-    color: #EBC59F;
-    background: #265D6E ;
-    text-align: center;
-    padding: 7px 0 7px 0;
-    font-size: 20px;
-    margin-top: 15px;
-    margin-left: 100px;
-    position: absolute;
-    font-weight: lighter;
-}
+#save,#exit{
+         width: 180px;
+         /*height: 30px;*/
+         color: #EBC59F;
+         background: #265D6E ;
+         text-align: center;
+         padding: 7px 0 7px 0;
+         font-size: 20px;
+         margin-top: 15px;
+         margin-left: 100px;
+         position: absolute;
+         font-weight: lighter;
+     }
+
 #save{
     margin-top: 820px;
     margin-left: 80px;

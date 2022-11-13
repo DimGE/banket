@@ -11,13 +11,13 @@ label{
     font-weight: normal;
 }
 
-input[type="text"] {
-    margin-top: 5px;
-    /*margin-left: 5px;*/
-    padding-left: 30px;
-    border: none;
-    width: 150px;
-    height: 25px;
-    font-size: 20px;
-    border-radius: 4px;
-}
+/*input[type="text"]{*/
+/*    margin-top: 5px;*/
+/*    !*margin-left: 5px;*!*/
+/*    padding-left: 30px;*/
+/*    border: none;*/
+/*    width: 150px;*/
+/*    height: 25px;*/
+/*    font-size: 20px;*/
+/*    border-radius: 4px;*/
+/*}*/
