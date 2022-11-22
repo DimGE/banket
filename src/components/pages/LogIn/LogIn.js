@@ -1,11 +1,15 @@
 import React from "react";
 import "./LogIn.css"
 import "./font-awesome.css"
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import axios from "axios";
+import myIP from "../../../MyIP";
 
-const LogIn = () => {
+
+const LogIn = (props) => {
+    const navigate = useNavigate()
     const [info, setInfo] = React.useState({
-        email: "",
+        username: "",
         password: ""
     })
 
@@ -19,8 +23,25 @@ const LogIn = () => {
     }
 
     function handleSubmit(event) {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         event.preventDefault()
+
+        axios.post(`${myIP}/users/token/`,info)
+            .then(res=>{
+                localStorage.setItem('accessToken',JSON.stringify(res.data.access))
+                localStorage.setItem('refreshToken',JSON.stringify(res.data.refresh))
+                props.auth()
+                navigate('/')
+                // if(true){
+                //     return navigate('/')
+                // }
+            })
+            .catch(err => {
+                // what now?
+
+                console.log(err);
+            })
+
     }
 
     return (
@@ -30,7 +51,7 @@ const LogIn = () => {
                     <div className="login--input">
                         <input
                             type="email"
-                            name="email"
+                            name="username"
                             placeholder="Введите электронную почту"
                             required="required"
                             onChange={handleChange}/>
@@ -43,14 +64,14 @@ const LogIn = () => {
                             required="required"
                             onChange={handleChange}/>
                     </div>
-                    <NavLink to="/hall">
+                    {/*<NavLink to="/hall">*/}
                     <input
                         className="login--button"
                         type="submit"
                         name="submit"
                         value="ВОЙТИ"/>
                     <br/>
-                    </NavLink>
+                    {/*</NavLink>*/}
                     <a href="src/components/pages/LogIn/LogIn">Восстановление пароля</a>
                 </form>
                 <div className="login--social">

@@ -7,7 +7,8 @@ import Reviews from "./Reviews/Reviews";
 import Offer from "./Offer/Offer";
 import Footer from "../../Footer/Footer";
 
-const StartPage = () =>{
+const StartPage = (props) =>{
+    console.log(props.auth)
     return(
         <div className="startpage">
             {/*<Navbar/>*/}
@@ -15,7 +16,7 @@ const StartPage = () =>{
             <About/>
             <WhyUs/>
             <Reviews/>
-            <Offer/>
+            <Offer auth={props.auth}/>
             {/*<Footer/>*/}
         </div>
     )

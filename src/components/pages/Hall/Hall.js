@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import "./Hall.css"
 import Place from "./Place/Place";
 import InputPlace from "./PersonList/InputPlace";
+import {useNavigate} from "react-router-dom";
 
-const Hall = () => {
+const Hall = (props) => {
+    console.log(props.auth)
     const [table, setTable] = React.useState(create_places)
-
+    const navigate = useNavigate()
     // function createTb() {
     //     const newArray = []
     //     const newArray1 = []
@@ -86,8 +88,7 @@ const Hall = () => {
 
     }
 
-    console.log(places4)
-    console.log(places5)
+
 
     const inputs = table.map(el => <InputPlace {...el}/>)
 
@@ -122,63 +123,72 @@ const Hall = () => {
         )
     }
 
-    return (
-        <div className="hall">
-            <div className="tables">
-                <div className="hall-first">
-                    <div className="hall-table1">
-                        {places1}
-                        <div className="tb1">
-                            Стол №1
+   useEffect(()=>{
+   if(!props.auth){
+       navigate('/startpage')
+   }
+   },[props.auth])
+
+        return (
+
+            <div className="hall">
+
+                <div className="tables">
+                    <div className="hall-first">
+                        <div className="hall-table1">
+                            {places1}
+                            <div className="tb1">
+                                Стол №1
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="hall-second">
+                        <div className="hall-table2">
+                            {places2}
+                            <div className="tb2">
+                                Стол №2
+                            </div>
+                        </div>
+                        <div className="hall-table3">
+                            {places3}
+                            <div className="tb3">
+                                Стол №3
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="hall-third">
+
+                        <div className="hall-table4">
+                            {places4}
+                            <div className="tb4">
+                                Стол №4
+                            </div>
+                        </div>
+                        <div className="hall-table5">
+                            {places5}
+                            <div className="tb5">
+                                Стол №5
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="hall-second">
-                    <div className="hall-table2">
-                        {places2}
-                        <div className="tb2">
-                            Стол №2
-                        </div>
-                    </div>
-                    <div className="hall-table3">
-                        {places3}
-                        <div className="tb3">
-                            Стол №3
-                        </div>
-                    </div>
-                </div>
-
-                <div className="hall-third">
-
-                    <div className="hall-table4">
-                        {places4}
-                        <div className="tb4">
-                            Стол №4
-                        </div>
-                    </div>
-                    <div className="hall-table5">
-                        {places5}
-                        <div className="tb5">
-                            Стол №5
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="form-place">
-                <form action="">
-                    {inputs}
-                    <input id="save" type="submit" value="СОХРАНИТЬ"/>
-                    <input id="exit" type="button" value="ВЫЙТИ
+                <div className="form-place">
+                    <form action="">
+                        {inputs}
+                        <input id="save" type="submit" value="СОХРАНИТЬ"/>
+                        <input id="exit" type="button" value="ВЫЙТИ
                     "/>
-                </form>
+                    </form>
+
+                </div>
+
 
             </div>
+        );
 
-
-        </div>
-    );
 };
 
 export default Hall;

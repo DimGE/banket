@@ -1,6 +1,8 @@
 import React from "react";
 import "./SignUp.css"
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import axios from "axios";
+import myIP from "../../../MyIP";
 
 const SignUp = ()=>{
     const [show,setShow] = React.useState(false)
@@ -10,7 +12,7 @@ const SignUp = ()=>{
         email:"",
         password:""
     })
-
+    const navigate = useNavigate()
     function handleChange(event){
         const {name,value} = event.target
         setInfo(prevInfo =>({
@@ -20,9 +22,16 @@ const SignUp = ()=>{
 
     }
     function handleSubmit(event){
-        console.log(event.target.value)
         event.preventDefault()
-        console.log(info)
+        axios.post(`${myIP}/users/register/`,info)
+            .then(res=> {
+                console.log("Zaebis")
+                navigate('/login')
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+
     }
     return(
         <div className="container--signup">
