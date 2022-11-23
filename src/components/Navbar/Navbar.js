@@ -4,18 +4,10 @@ import logo from "../../img/StartPageImg/logo.png"
 import {NavLink} from "react-router-dom";
 
 const Navbar = (props) => {
-    // const [auth,setAuth] = useState({
-    //     isAuth: localStorage.getItem('accessToken') ? true : false
-    // })
-
-    // const remove = () => {
-    //     localStorage.removeItem('accessToken')
-    //     localStorage.removeItem('refreshToken')
-    // }
 
     return (
         <div className="nav">
-            <NavLink to="/startpage">
+            <NavLink to="/">
                 <div className="nav--logo">
                     <img className="logo--img" src={logo} alt=""/>
                     <h2 className="logo--text">Perfect view</h2>
@@ -26,20 +18,25 @@ const Navbar = (props) => {
 
                 {
                     props.auth &&
-                    <div onClick={props.removeUser} className="login--text">
-                        {/*<p className="login--sign">LOG IN</p>*/}
-                        <NavLink to="/" className="login--sign">ВЫЙТИ</NavLink>
+                    <div className="ligin--all">
+                        <div className="login--text">
+                            <NavLink to="/user" className="login--sign">ПРОФИЛЬ</NavLink>
+                        </div>
+
+                        <div onClick={props.removeUser} className="login--text">
+                            <NavLink to="/" className="login--sign">ВЫЙТИ</NavLink>
+                        </div>
+
                     </div>
                 }
                 {
                     !props.auth &&
+
                     <div className="ligin--all">
                         <div className="login--text">
-                            {/*<p className="login--sign">LOG IN</p>*/}
                             <NavLink to="/login" className="login--sign">ВОЙТИ</NavLink>
                         </div>
                         <div className="login--text">
-                            {/*<p className="login--sign">SIGN UP</p>*/}
                             <NavLink to="/signup" className="login--sign">РЕГИСТРАЦИЯ</NavLink>
                         </div>
                     </div>
@@ -48,8 +45,8 @@ const Navbar = (props) => {
 
 
             </div>
-
         </div>
     )
 }
+
 export default Navbar

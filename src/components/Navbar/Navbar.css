@@ -3,7 +3,6 @@
     background-color: #265D6F;
     display: flex;
     justify-content: space-between;
-    /*gap: 100%;*/
     width: 100%;
     position: fixed;
     z-index: 5;
@@ -17,7 +16,6 @@
 }
 .logo--text{
     color: #EBC59F;
-    /*display: flex;*/
     width: 215px;
 
     font-style: normal;
@@ -37,10 +35,7 @@
     gap: 25px;
 }
 .login--text{
-    /*width: 100px;*/
     width: auto;
-
-    /*height: 30px;*/
     color: #265D6E;
     background: #EBC59F;
     text-align: center;

@@ -1,58 +1,27 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./Hall.css"
 import Place from "./Place/Place";
-import InputPlace from "./PersonList/InputPlace";
 import {useNavigate} from "react-router-dom";
 
 const Hall = (props) => {
-    console.log(props.auth)
-    const [table, setTable] = React.useState(create_places)
     const navigate = useNavigate()
-    // function createTb() {
-    //     const newArray = []
-    //     const newArray1 = []
-    //     const newArray2 = []
-    //     const newArray3 = []
-    //     const newArray4 = []
-    //     const newArray5 = []
-    //     for (let i = 1; i < 20; i++) {
-    //         newArray1.push({
-    //             id: i,
-    //             value: i,
-    //             isCheck: false
-    //         })
-    //     }
-    //     for (let i = 20; i < 34; i++) {
-    //         newArray2.push({
-    //             id: i,
-    //             value: i,
-    //         })
-    //     }
-    //     for (let i = 34; i < 48; i++) {
-    //         newArray3.push({
-    //             id: i,
-    //             value: i,
-    //         })
-    //     }
-    //     for (let i = 48; i < 62; i++) {
-    //         newArray4.push({
-    //             id: i,
-    //             value: i,
-    //         })
-    //     }
-    //     for (let i = 62; i < 76; i++) {
-    //         newArray5.push({
-    //             id: i,
-    //             value: i,
-    //         })
-    //     }
-    //     newArray.push(newArray1)
-    //     newArray.push(newArray2)
-    //     newArray.push(newArray3)
-    //     newArray.push(newArray4)
-    //     newArray.push(newArray5)
-    //     return newArray
-    // }
+    const [table, setTable] = React.useState(create_places)
+    const [place_num,set_place_num] = useState()
+    const [info, setInfo] = React.useState({
+        first_name: "",
+        last_name: "",
+        email: ""
+    })
+    const [show, setShow] = React.useState(false)
+    console.log(show)
+    function handleChange(event) {
+        const {name, value} = event.target
+        setInfo(prevInfo => ({
+            ...prevInfo,
+            [name]: value
+        }))
+    }
+
 
     function create_places() {
         const newArray = []
@@ -89,8 +58,7 @@ const Hall = (props) => {
     }
 
 
-
-    const inputs = table.map(el => <InputPlace {...el}/>)
+    // const inputs = table.map(el => <InputPlace {...el}/>)
 
     places1 = places1.map(place => <Place
         {...place}
@@ -115,79 +83,119 @@ const Hall = (props) => {
 
 
     function selectPlace(id) {
+        // setTable(prevState => prevState.map((place) => {
+        //         return place.id === id ?
+        //             {...place, isCheck: !place.isCheck} :
+        //             place
+        //     })
+        // )
+        setShow(true)
+        set_place_num(id)
+    }
+
+    const save_guest = ()=>{
         setTable(prevState => prevState.map((place) => {
-                return place.id === id ?
+                return place.id === place_num?
                     {...place, isCheck: !place.isCheck} :
                     place
             })
         )
     }
 
-   useEffect(()=>{
-   if(!props.auth){
-       navigate('/startpage')
-   }
-   },[props.auth])
+    useEffect(() => {
+        if (!props.auth) {
+            navigate('/startpage')
+        }
+    }, [props.auth])
 
-        return (
+    return (
 
-            <div className="hall">
+        <div className="hall">
 
-                <div className="tables">
-                    <div className="hall-first">
-                        <div className="hall-table1">
-                            {places1}
-                            <div className="tb1">
-                                Стол №1
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="hall-second">
-                        <div className="hall-table2">
-                            {places2}
-                            <div className="tb2">
-                                Стол №2
-                            </div>
-                        </div>
-                        <div className="hall-table3">
-                            {places3}
-                            <div className="tb3">
-                                Стол №3
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="hall-third">
-
-                        <div className="hall-table4">
-                            {places4}
-                            <div className="tb4">
-                                Стол №4
-                            </div>
-                        </div>
-                        <div className="hall-table5">
-                            {places5}
-                            <div className="tb5">
-                                Стол №5
-                            </div>
+            <div className="tables">
+                <div className="hall-first">
+                    <div className="hall-table1">
+                        {places1}
+                        <div className="tb1">
+                            Стол №1
                         </div>
                     </div>
                 </div>
 
-                <div className="form-place">
-                    <form action="">
-                        {inputs}
-                        <input id="save" type="submit" value="СОХРАНИТЬ"/>
-                        <input id="exit" type="button" value="ВЫЙТИ
-                    "/>
-                    </form>
-
+                <div className="hall-second">
+                    <div className="hall-table2">
+                        {places2}
+                        <div className="tb2">
+                            Стол №2
+                        </div>
+                    </div>
+                    <div className="hall-table3">
+                        {places3}
+                        <div className="tb3">
+                            Стол №3
+                        </div>
+                    </div>
                 </div>
 
+                <div className="hall-third">
+
+                    <div className="hall-table4">
+                        {places4}
+                        <div className="tb4">
+                            Стол №4
+                        </div>
+                    </div>
+                    <div className="hall-table5">
+                        {places5}
+                        <div className="tb5">
+                            Стол №5
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {show && <div className="form-place">
+                <form onSubmit={save_guest}>
+                    <h3>Место: {place_num}</h3>
+                    <input
+                        type="text"
+                        placeholder="Имя"
+                        name="first_name"
+                        onChange={handleChange}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Фамилия"
+                        name="last_name"
+                        onChange={handleChange}
+                    />
+                    <input
+                        type="email"
+                        placeholder="Почта"
+                        name="email"
+                        onChange={handleChange}
+
+                    />
+                    <input type="submit" value="СОХРАНИТЬ"/>
+                    <input onClick={ ()=>{setShow(!show)}} type="button" value="ВЫЙТИ"/>
+                </form>
 
             </div>
-        );
+            }
+
+            {/*<div className="form-place">*/}
+            {/*    <form action="">*/}
+            {/*        {inputs}*/}
+            {/*        <input id="save" type="submit" value="СОХРАНИТЬ"/>*/}
+            {/*        <input id="exit" type="button" value="ВЫЙТИ*/}
+            {/*    "/>*/}
+            {/*    </form>*/}
+
+            {/*</div>*/}
+
+
+        </div>
+    );
 
 };
 

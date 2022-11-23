@@ -7,7 +7,6 @@ import offer3 from "../../../../img/StartPageImg/offer3.png"
 import offer4 from "../../../../img/StartPageImg/offer4.png"
 
 const Offer= (props)=>{
-    console.log(props.auth)
     return(
         <div className="offer">
 

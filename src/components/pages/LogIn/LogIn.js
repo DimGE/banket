@@ -80,6 +80,7 @@ const LogIn = (props) => {
                     <i className="fa fa-facebook" aria-hidden="true"></i>
                     <i className="fa fa-twitter" aria-hidden="true"></i>
                     <i className="fa fa-odnoklassniki" aria-hidden="true"></i>
+                    <i className="fa-regular fa-calendar-circle-plus" aria-hidden="true"></i>
                 </div>
                 <p>Ещё нет аккаунт?<NavLink to="/signup">Зарегестрироватся</NavLink></p>
             </div>

@@ -112,42 +112,42 @@
 }
 .hall form{
     margin: 25px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     column-gap: 25px;
     margin-bottom: 75px;
 }
 
-#save,#exit{
-         width: 180px;
-         /*height: 30px;*/
-         color: #EBC59F;
-         background: #265D6E ;
-         text-align: center;
-         padding: 7px 0 7px 0;
-         font-size: 20px;
-         margin-top: 15px;
-         margin-left: 100px;
-         position: absolute;
-         font-weight: lighter;
-     }
+/*#save,#exit{*/
+/*         width: 180px;*/
+/*         !*height: 30px;*!*/
+/*         color: #EBC59F;*/
+/*         background: #265D6E ;*/
+/*         text-align: center;*/
+/*         padding: 7px 0 7px 0;*/
+/*         font-size: 20px;*/
+/*         margin-top: 15px;*/
+/*         margin-left: 100px;*/
+/*         position: absolute;*/
+/*         font-weight: lighter;*/
+/*     }*/
 
-#save{
-    margin-top: 820px;
-    margin-left: 80px;
-}
-#exit{
-    margin-top: 820px;
-    margin-left: 400px;
-}
+/*#save{*/
+/*    margin-top: 820px;*/
+/*    margin-left: 80px;*/
+/*}*/
+/*#exit{*/
+/*    margin-top: 820px;*/
+/*    margin-left: 400px;*/
+/*}*/
 
-#save:hover,#exit:hover{
-    cursor: pointer;
-    transition: 0.5s;
-    background: rgba(149, 151, 154, 0.96);
-    color: white;
-}
+/*#save:hover,#exit:hover{*/
+/*    cursor: pointer;*/
+/*    transition: 0.5s;*/
+/*    background: rgba(149, 151, 154, 0.96);*/
+/*    color: white;*/
+/*}*/
 
 
 

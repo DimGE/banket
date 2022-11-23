@@ -1,0 +1,92 @@
+.user {
+    padding-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    background: #D1D6DD;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile {
+
+    width: 250px;
+    height: 350px;
+    background-color: rgba(246, 255, 247, 0.96);
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    border-radius: 7%;
+    box-shadow: 15px 15px 50px 5px rgba(0, 0, 0, 0.25);
+}
+
+.ivents {
+    /*text-align: center;*/
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(246, 255, 247, 0.96);
+    margin: 50px;
+    min-width: 700px;
+    min-height: 300px;
+    border-radius: 7%;
+    box-shadow: 15px 15px 50px 5px rgba(0, 0, 0, 0.25);
+}
+
+.user img {
+    width: 110px;
+    padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+}
+
+p {
+    margin: 5px;
+}
+
+.labels {
+    font-size: 12px;
+    border-bottom: 1px solid black;
+
+}
+
+.info {
+    padding: 0 25px;
+}
+
+.ivent {
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 0 20px;
+    font-weight: lighter;
+}
+
+#head {
+    border-bottom: 1px solid black;
+}
+
+#myivets {
+    margin: 25px auto;
+}
+
+.user_creat {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#creat {
+    margin: 10px 5px;
+    text-decoration: none;
+}
+
+.event_delete{
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+#delete:hover{
+    cursor: pointer;
+    color: red;
+    transition: 0.3s;
+}
