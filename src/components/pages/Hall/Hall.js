@@ -8,51 +8,6 @@ const Hall = (props) => {
     console.log(props.auth)
     const [table, setTable] = React.useState(create_places)
     const navigate = useNavigate()
-    // function createTb() {
-    //     const newArray = []
-    //     const newArray1 = []
-    //     const newArray2 = []
-    //     const newArray3 = []
-    //     const newArray4 = []
-    //     const newArray5 = []
-    //     for (let i = 1; i < 20; i++) {
-    //         newArray1.push({
-    //             id: i,
-    //             value: i,
-    //             isCheck: false
-    //         })
-    //     }
-    //     for (let i = 20; i < 34; i++) {
-    //         newArray2.push({
-    //             id: i,
-    //             value: i,
-    //         })
-    //     }
-    //     for (let i = 34; i < 48; i++) {
-    //         newArray3.push({
-    //             id: i,
-    //             value: i,
-    //         })
-    //     }
-    //     for (let i = 48; i < 62; i++) {
-    //         newArray4.push({
-    //             id: i,
-    //             value: i,
-    //         })
-    //     }
-    //     for (let i = 62; i < 76; i++) {
-    //         newArray5.push({
-    //             id: i,
-    //             value: i,
-    //         })
-    //     }
-    //     newArray.push(newArray1)
-    //     newArray.push(newArray2)
-    //     newArray.push(newArray3)
-    //     newArray.push(newArray4)
-    //     newArray.push(newArray5)
-    //     return newArray
-    // }
 
     function create_places() {
         const newArray = []

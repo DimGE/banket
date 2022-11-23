@@ -6,11 +6,11 @@ import Footer from "./components/Footer/Footer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Hall from "./components/pages/Hall/Hall";
-import MyIP from "./MyIP";
 import myIP from "./MyIP";
 import axios from "axios";
 
 import {useState, useEffect} from "react";
+import User from "./components/pages/User/User";
 
 function App() {
 
@@ -46,6 +46,9 @@ function App() {
                     .then(res => {
                         localStorage.setItem('accessToken', JSON.stringify(res.data.access))
                     })
+                    .catch(err=>{
+                        removeUser()
+                    })
             }
         }, 240000)
     })
@@ -56,31 +59,28 @@ function App() {
         setAuth(!auth)
     }
 
+
     return (
         <BrowserRouter>
             <div className="App">
                 <Navbar auth={auth} removeUser={() => {
                     removeUser()
                 }}/>
-                {/*{dis}*/}
-                {/*<SignUp/>*/}
-                {/*<StartPage/>*/}
+
                 <Routes path="" element={<StartPage auth={auth}/>}>
                     <Route path="/" element={<StartPage auth={auth}/>}/>
-                    <Route path="/startpage" element={<StartPage auth={auth}/>}/>
+                    {/*<Route path="/startpage" element={<StartPage auth={auth}/>}/>*/}
                     <Route path="/signup" element={<SignUp/>}/>
                     <Route path="/login" element={<LogIn auth={() => {
                         setAuth(!auth)
                     }}/>}/>
                     <Route path="/hall" element={<Hall auth={auth}/>}/>
-                    {/*<SignUp/>*/}
-                    {/*<LogIn/>*/}
-                    {/*<Footer/>*/}
+                    <Route path="/user" element={<User auth={auth}/>}/>
+
+
                 </Routes>
-                {/*<Hall/>*/}
 
                 <Footer/>
-                {myIP}
             </div>
         </BrowserRouter>
     );
