@@ -4,6 +4,7 @@ import './User.css'
 const Event = (props) => {
     return (
         <div className="ivent">
+            <div className="event_edit"><i onClick={props.choise_event} id="edit" className="fa fa-pencil-square-o" aria-hidden="true"></i></div>
             <p>{props.name}</p>
             <p>{props.caunt}</p>
             <p>{props.data}</p>

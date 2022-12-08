@@ -62,7 +62,7 @@ function App() {
                     .then(res => {
                         localStorage.setItem('accessToken', JSON.stringify(res.data.access))
                     })
-                    .catch(err=>{
+                    .catch(()=>{
                         removeUser()
                     })
             }
@@ -72,6 +72,7 @@ function App() {
     const removeUser = () => {
         localStorage.removeItem('accessToken')
         localStorage.removeItem('refreshToken')
+        localStorage.removeItem('current_event')
         setAuth(!auth)
     }
 

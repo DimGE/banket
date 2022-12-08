@@ -10,57 +10,91 @@ import myIP from "../../../MyIP";
 const User = (props) => {
     const navigate = useNavigate()
 
-    const [userInfo,setUserInfo] = useState({
-        first_name:"",
-        last_name:"",
-        email:""
+    const [userInfo, setUserInfo] = useState({
+        first_name: "",
+        last_name: "",
+        email: ""
     })
-    const [myEvents,setMyEvents] = useState([])
-    const [changes,setChanges] = useState(true)
+    const [myEvents, setMyEvents] = useState([])
 
-    useEffect(()=>{
-    axios.get(`${myIP}/users/profile/`, {headers : {
-        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken'))}`
-        }})
-        .then(res=>{
-            setUserInfo(res.data)
-        })
-    },[])
-
-    useEffect(()=>{
-        axios.get(`${myIP}/banket/events/my-events/`, {headers : {
+    useEffect(() => {
+        axios.get(`${myIP}/users/profile/`, {
+            headers: {
                 'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken'))}`
-            }})
-            .then(res=>{
-                setMyEvents(res.data)
-                console.log("Вызвалось")
+            }
+        })
+            .then(res => {
+                setUserInfo(res.data)
             })
-    },[setChanges])
+    }, [])
 
-    const events = myEvents.map(event=>
+    const get_info = () => {
+        axios.get(`${myIP}/banket/events/my-events/`, {
+            headers: {
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken'))}`
+            }
+        })
+            .then(res => {
+                setMyEvents(res.data)
+            })
+    }
+
+    useEffect(() => {
+        get_info()
+    }, [])
+
+
+    const delete_event = (id) => {
+
+        axios.delete(`${myIP}/banket/events/${id}/`, {
+            headers: {
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken'))}`
+            }
+        })
+            .then(() => {
+                get_info()
+            })
+    }
+
+    const choise_event = (id)=>{
+        localStorage.setItem('current_event',JSON.stringify(id))
+        console.log(JSON.parse(localStorage.getItem('current_event')))
+        navigate('/hall')
+    }
+
+    const create_new_event = ()=>{
+        axios.post(`${myIP}/banket/events/`,{}, {
+            headers: {
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken'))}`
+            }
+        })
+            .then(() => {
+                get_info()
+            })
+            .catch(err=>{
+                console.log(err.request.response)
+                console.log('Создалось')
+
+            })
+    }
+
+
+    const events = myEvents.map(event =>
         <Event
-        key={event.id}
-        name={event.event_type}
-        caunt={event.guest_count}
-        data={event.date_planned}
-        price={event.total_price}
-        state={event.is_passed}
-        delete_event={()=>{delete_event(event.id)}}
+            key={event.id}
+            name={event.event_type}
+            caunt={event.guest_count}
+            data={event.date_planned}
+            price={event.total_price}
+            state={event.is_passed}
+            delete_event={() => {
+                delete_event(event.id)
+            }}
+            choise_event={()=>{
+                choise_event(event.id)
+            }}
         />
     )
-
-    const delete_event= (id)=>{
-
-        axios.delete(`${myIP}/banket/events/${id}/`, {headers : {
-                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken'))}`
-            }})
-            .then(res=>{
-                console.log(res)
-
-            })
-        window.location.reload();
-
-    }
 
 
     useEffect(() => {
@@ -93,6 +127,7 @@ const User = (props) => {
                 <h1 id="myivets">Мои мероприятия </h1>
                 <br/>
                 <div id="head" className="ivent">
+                    <p>Открыть</p>
                     <p>Название</p>
                     <p>Кол-во людей</p>
                     <p>Дата</p>
@@ -104,15 +139,14 @@ const User = (props) => {
                 {events}
                 {/*<Event/>*/}
 
-                <NavLink to="/hall">
-                    <div className="user_creat">
+
+                    <div onClick={create_new_event} className="user_creat">
 
                         <h4 id="creat" className="ivent_button">Создать новое </h4>
                         <i className="fa fa-plus-circle" aria-hidden="true"></i>
 
                     </div>
 
-                </NavLink>
 
             </div>
 

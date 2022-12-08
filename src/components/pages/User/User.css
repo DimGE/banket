@@ -55,9 +55,18 @@ p {
 
 .ivent {
     display: grid;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     margin: 0 20px;
     font-weight: lighter;
+}
+.ivent:hover{
+    transition: 0.8s;
+    background-color: rgba(121,255,209,0.2);
+}
+#edit:hover{
+    transition: 0.6s;
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 #head {
@@ -75,6 +84,14 @@ p {
     align-items: center;
 }
 
+.user_creat:hover{
+    cursor: pointer;
+    color: green;
+    transition: 0.3s;
+    /*background-color: rgba(122,255,113,0.30);*/
+    /*border-radius: 0 0 80px 80px;*/
+}
+
 #creat {
     margin: 10px 5px;
     text-decoration: none;
@@ -84,9 +101,16 @@ p {
     display: flex;
     justify-content: center;
     padding-top: 5px;
+
+}
+.event_edit{
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
 }
 #delete:hover{
     cursor: pointer;
     color: red;
     transition: 0.3s;
+    transform: scale(1.2);
 }

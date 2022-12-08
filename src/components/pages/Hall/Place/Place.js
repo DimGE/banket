@@ -3,16 +3,17 @@ import './Place.css'
 
 const Place = (props) => {
     const styles = {
-        backgroundColor: props.isCheck ? "green" : "#265D6E",
+        backgroundColor: props.is_engaged ? "red" : "#265D6E",
+        color: props.is_engaged ? "black" : "white",
     }
-    const clasName=`place n${props.value}`
+    const clasName=`place n${props.number}`
     return (
         <div style={styles}
              className={clasName}
-             id={props.value}
+             id={props.number}
              onClick={props.selectPlace}
         >
-            <p className="place-num">{props.value}</p>
+            <p className="place-num">{props.number}</p>
         </div>
     );
 };
