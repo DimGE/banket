@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.css"
 import footer from "../../img/StartPageImg/footer.png"
 import map from "../../img/map.bmp"
-import Map from "../Map";
+
 
 const Footer = () => {
     return (
@@ -17,17 +17,9 @@ const Footer = () => {
                 </div>
                 <div className="contacts--img">
                     {/*<img src={map} alt=""/>*/}
-                    {/*<iframe*/}
-                    {/*    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2721.6524043537165!2d28.85606595124467!3d46.98816153838385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97eabc3a765df%3A0x5414844e2adf07cc!2sVasconi%2C%20Magazin%20de%20haine%2C%20Decebal%20139!5e0!3m2!1sru!2s!4v1673882312619!5m2!1sru!2s"*/}
-                    {/*    width="600" height="450" style="border:0;" allowFullScreen="" loading="lazy"*/}
-                    {/*    referrerPolicy="no-referrer-when-downgrade"></iframe>*/}
-                    <Map
-                        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${apiKey}`}
-                        loadingElement={<div style={{height: `100%`}}/>}
-                        containerElement={<div style={{height: `400px`}}/>}
-                        mapElement={<div style={{height: `100%`}}/>}
-                    />
-
+                    <iframe
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad8331bf7614fd7d58dcecd06b337e322d1c3f0f2f450777766ba9e2f9c155f27&amp;source=constructor"
+                        width="600" height="350" frameBorder="0"></iframe>
                 </div>
 
             </div>

@@ -7,6 +7,7 @@ import offer3 from "../../../../img/StartPageImg/offer3.png"
 import offer4 from "../../../../img/StartPageImg/offer4.png"
 
 const Offer= (props)=>{
+
     return(
         <div className="offer">
 
@@ -31,6 +32,7 @@ const Offer= (props)=>{
 
 
             </div>
+
             {!props.auth &&
                 <div onClick={()=>{alert("Вы не авторизованы")}} className="offer--button">
                     <p className="button--text"> СОЗДАТЬ СВОЁ</p>
