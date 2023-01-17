@@ -119,9 +119,15 @@ a:hover{
     cursor: pointer;
 }
 .sign--status{
+   ;
+    margin: auto;
+    margin-top: 35px;
     padding: 15px;
     color: white;
     font-size: 20px;
-    /*color: rgba(15,111,56,0.96);*/
-    border: solid 1px  blue;
+    background-color: rgba(255,0,0,0.37);
+    border: solid 1px  red;
+    width: 80%;
+    border-radius: 15px;
+
 }

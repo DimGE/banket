@@ -37,7 +37,7 @@ const Offer= (props)=>{
                 </div>
             }
 
-            {props.auth && <NavLink to="/hall">
+            {props.auth && <NavLink to="/user">
                 <div style={{paddingTop:"1px"}} className="offer--button">
                     <p className="button--text"> СОЗДАТЬ СВОЁ</p>
                 </div>

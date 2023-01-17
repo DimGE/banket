@@ -155,7 +155,7 @@
     min-width: 700px;
     /*min-height: 300px;*/
     height: 300px;
-    border-radius: 7%;
+    border-radius: 25px;
     box-shadow: 15px 15px 50px 5px rgba(0, 0, 0, 0.25);
     overflow: auto;
 }
@@ -323,13 +323,21 @@ input[type="date"]{
     transition: 0.3s;
     cursor: pointer;
 }
-.new_order_form{
+.new_order_form, .send_invite{
+    width: 330px;
     background-color: #9FB8C6;
     padding: 25px;
     border-radius: 25px;
     box-shadow: 15px 15px 50px 5px rgba(0, 0, 0, 0.25);
 
 }
+.send_invite{
+    background-image: url("../../../img/from-background.jpg");
+    background-size: cover;
+}
+
+
+
 .new_order_form input[type=text]{
     margin: 15px 0;
     height: 30px;
@@ -339,8 +347,24 @@ input[type="date"]{
     width: 90px;
     margin: auto;
 }
-
-
+.send_invite input[type=submit]{
+    height: 30px;
+    margin: auto;
+    margin-top: 15px ;
+}
+.send_invite input[type=submit]:hover{
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #265D6F;
+    color: white;
+}
+.send_invite_container{
+    border-top: solid 2px black;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .event_name p {
     color: #fff;
@@ -409,5 +433,65 @@ input[type="date"]{
         font-size: 8em;
     }
 }
+
+.change_seat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(142,111,255,0.53);
+    border-radius: 10px;
+    padding: 0 30px;
+}
+.change_seat input[type=text]{
+    width: 200px;
+
+}
+.change_seat input[type=submit]{
+    margin: 15px 0;
+    height: 35px;
+    border-radius: 5px;
+}
+.change_seat input[type=submit]:hover{
+    color: white;
+    transition: 0.3s;
+    background-color: #265D6F ;
+    cursor: pointer;
+
+}
+
+
+/*--------------------------*/
+.loader_container{
+    display: flex;
+    justify-content: center;
+}
+.loader_container h3{
+    margin: 35px 25px;
+    font-size: 30px;
+}
+.loader {
+    --b: 10px;  /* border thickness */
+    --n: 12;    /* number of dashes*/
+    --g: 10deg; /* gap  between dashes*/
+    --c: black;   /* the color */
+
+    width:100px; /* size */
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 1px; /* get rid of bad outlines */
+    background: conic-gradient(#0000,var(--c)) content-box;
+    --_m: /* we use +/-1deg between colors to avoid jagged edges */
+            repeating-conic-gradient(#0000 0deg,
+            #000 1deg calc(360deg/var(--n) - var(--g) - 1deg),
+            #0000     calc(360deg/var(--n) - var(--g)) calc(360deg/var(--n))),
+            radial-gradient(farthest-side,#0000 calc(90% - var(--b)),#000 calc(100% - var(--b)));
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+    animation: load 1s infinite steps(var(--n));
+}
+@keyframes load {to{transform: rotate(1turn)}}
+/*-----------------*/
 
 

@@ -85,7 +85,6 @@ function App() {
 
                 <Routes path="" element={<StartPage auth={auth}/>}>
                     <Route path="/" element={<StartPage auth={auth}/>}/>
-                    {/*<Route path="/startpage" element={<StartPage auth={auth}/>}/>*/}
                     <Route path="/signup" element={<SignUp/>}/>
                     <Route path="/login" element={<LogIn auth={() => {
                         setAuth(!auth)

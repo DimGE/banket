@@ -13,7 +13,7 @@ const StartPage = (props) => {
             <Header/>
             <About/>
             <WhyUs/>
-            <Reviews/>
+            {/*<Reviews/>*/}
             <Offer auth={props.auth}/>
         </div>
     )

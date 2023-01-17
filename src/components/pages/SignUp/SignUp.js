@@ -1,42 +1,55 @@
-import React from "react";
+import React, {useState} from "react";
 import "./SignUp.css"
 import {NavLink, useNavigate} from "react-router-dom";
 import axios from "axios";
 import myIP from "../../../MyIP";
 
-const SignUp = ()=>{
-    const [show,setShow] = React.useState(false)
-    const [info,setInfo] = React.useState({
-        first_name:"",
-        last_name:"",
-        email:"",
-        password:""
+const SignUp = () => {
+    const [show, setShow] = React.useState(false)
+    const [errorType, setErrorType] = useState('')
+    const [info, setInfo] = React.useState({
+        first_name: "",
+        last_name: "",
+        email: "",
+        password: ""
     })
     const navigate = useNavigate()
-    function handleChange(event){
-        const {name,value} = event.target
-        setInfo(prevInfo =>({
+
+    function handleChange(event) {
+        const {name, value} = event.target
+        setInfo(prevInfo => ({
             ...prevInfo,
-            [name]:value
+            [name]: value
         }))
 
     }
-    function handleSubmit(event){
+
+    function handleSubmit(event) {
         event.preventDefault()
-        axios.post(`${myIP}/users/register/`,info)
-            .then(res=> {
-                console.log("Zaebis")
+        axios.post(`${myIP}/users/register/`, info)
+            .then(res => {
                 navigate('/login')
             })
-            .catch(err=>{
-                console.log(err)
+            .catch(err => {
+                setShow(true)
+                if (err.response.data.email) {
+                    setErrorType('Данная почта уже используется')
+                } else if (err.response.data.password){
+                    setErrorType('Придумайте другой пароль')
+                } else {
+                    setErrorType('Проверьте веденные данные')
+                }
+                    setTimeout(() => {
+                        setShow(false)
+                    }, 4000)
             })
 
     }
-    return(
+
+    return (
         <div className="container--signup">
             <div className="signup">
-                <form   onSubmit={handleSubmit} className="signup--form" action="">
+                <form onSubmit={handleSubmit} className="signup--form" action="">
                     <div className="signup--input">
                         <input
                             type="text"
@@ -61,9 +74,6 @@ const SignUp = ()=>{
                             placeholder="Введите e-mail"
                             required="required"/>
                     </div>
-                    {/*<div className="signup--input">*/}
-                    {/*    <input type="text" name="username" placeholder="Введите телефон" required="required"/>*/}
-                    {/*</div>*/}
                     <div className="signup--input">
                         <input
                             type="password"
@@ -72,18 +82,16 @@ const SignUp = ()=>{
                             placeholder="Введите пароль"
                             required="required"/>
                     </div>
-                    <input onClick={()=>setShow(!show)} className="signup--button"
+                    <input className="signup--button"
                            type="submit"
                            name="submit"
                            value="РЕГИСТРАЦИЯ"/>
                     <br/>
                 </form>
-
-                {/*<p>Уже есть аккаунт?<a href="#">Войти</a></p>*/}
                 <p>Уже есть аккаунт?<NavLink to="/login">Войти</NavLink></p>
                 <br/>
-                {show && <div style={{background: "rgba(15,111,56,0.75)"}} className="sign--status">
-                    Регистрация успешно пройдена
+                {show && <div className="sign--status">
+                    {errorType}
                 </div>}
             </div>
         </div>

@@ -32,14 +32,9 @@ const LogIn = (props) => {
                 localStorage.setItem('refreshToken',JSON.stringify(res.data.refresh))
                 props.auth()
                 navigate('/')
-                // if(true){
-                //     return navigate('/')
-                // }
             })
             .catch(err => {
-                // what now?
-
-                console.log(err);
+                alert('Неверный логин или пароль!')
             })
 
     }
@@ -64,14 +59,12 @@ const LogIn = (props) => {
                             required="required"
                             onChange={handleChange}/>
                     </div>
-                    {/*<NavLink to="/hall">*/}
                     <input
                         className="login--button"
                         type="submit"
                         name="submit"
                         value="ВОЙТИ"/>
                     <br/>
-                    {/*</NavLink>*/}
                     <a href="src/components/pages/LogIn/LogIn">Восстановление пароля</a>
                 </form>
                 <div className="login--social">

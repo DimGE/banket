@@ -58,3 +58,15 @@
     display: flex;
     column-gap: 20px;
 }
+@media (max-width: 530px) {
+    .login--sign{
+        font-size: 12px;
+    }
+    .login--text{
+     padding: 5px;
+    }
+    .nav--login{
+        /*display: ;*/
+    }
+
+}

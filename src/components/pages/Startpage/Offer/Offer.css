@@ -1,13 +1,13 @@
 .offer{
     padding: 40px;
-    background-color: #9FB8C6;
+    background-color: #D1D6DD;
     display: flex;
     flex-direction: column;
     align-items: center;
     /*justify-content: center;*/
 }
 .offer--title{
-    color: #FFFFFF;
+    color: black;
     font-size: 27px;
 }
 
@@ -30,14 +30,8 @@
     text-align: center;
     width: 300px;
     /*width: 100%;*/
-    color: #FFFFFF;
+    color: black;
 }
-/*.offer--stars{*/
-/*    margin-top: 0;*/
-/*    display: flex;*/
-/*    gap: 2px;*/
-/*}*/
-
 
 .offer--button{
     margin-top: 30px;

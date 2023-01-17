@@ -1,3 +1,3 @@
-const myIP = "http://192.168.137.56:8000"
+const myIP = "http://25.33.77.76:8000"
 
 export default myIP

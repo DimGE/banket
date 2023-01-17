@@ -10,7 +10,9 @@ import Dish from "./Place/Dish";
 import option from "./Option";
 import "./style"
 
+
 const Hall = (props) => {
+    let currentDate = new Date().toJSON().slice(0, 10)
     const navigate = useNavigate()
     const [table, setTable] = React.useState([])
     const [place_num, set_place_num] = useState()
@@ -20,6 +22,7 @@ const Hall = (props) => {
         last_name: "",
         email: ""
     })
+
     const [show, setShow] = React.useState(false)
     const [showChange, setShowChange] = React.useState(false)
     const [guestInfo, setGuestInfo] = React.useState({
@@ -33,6 +36,10 @@ const Hall = (props) => {
     const [newOrder, setNewOrder] = useState({
         id: "",
         amount: ""
+    })
+    const [newlyweds, setNewlyweds] = React.useState({
+        man_fullname: "",
+        women_fullname: ""
     })
 
 
@@ -55,7 +62,6 @@ const Hall = (props) => {
         })
             .then(res => {
                 setEventInfo(res.data)
-                console.log(res.data)
             })
     }
 
@@ -63,7 +69,6 @@ const Hall = (props) => {
     useEffect(() => {
         get_seats()
         get_eventInfo()
-        console.log(eventInfo)
     }, [])
 
 
@@ -150,7 +155,6 @@ const Hall = (props) => {
             })
             .catch(err => {
                 console.log(err.request.response)
-
             })
 
     }
@@ -162,7 +166,6 @@ const Hall = (props) => {
             }
         })
             .then(res => {
-                console.log(res.data)
                 setAll_guest(res.data)
             })
             .catch(err => {
@@ -228,6 +231,7 @@ const Hall = (props) => {
                 })
             })
             .catch(err => {
+                alert('Данное место занято ')
                 console.log(err.message)
             })
 
@@ -251,8 +255,6 @@ const Hall = (props) => {
 
     const change_event = (event, data) => {
         event.preventDefault()
-
-
         axios.patch(`${myIP}/banket/events/${JSON.parse(localStorage.getItem('current_event'))}/`,
             data, {
                 headers: {
@@ -264,7 +266,13 @@ const Hall = (props) => {
 
             })
             .catch(err => {
-                console.log(err.request.response)
+                if (err.response.data.date_planned) {
+                    setEventInfo(prevState => ({
+                        ...prevState,
+                        date_planned: ""
+                    }))
+                    alert('Данная дата уже занята')
+                }
             })
     }
 
@@ -287,7 +295,6 @@ const Hall = (props) => {
         })
             .then(res => {
                 setAllDishes(res.data)
-                console.log(res.data)
             })
     }, [])
 
@@ -331,7 +338,6 @@ const Hall = (props) => {
         })
             .then(res => {
                 setMyOrders(res.data)
-                console.log(res.data)
             })
     }
 
@@ -385,7 +391,7 @@ const Hall = (props) => {
                 )
             )
         }
-        console.log('вызвалось')
+
     }, [eventInfo])
 
 
@@ -423,31 +429,65 @@ const Hall = (props) => {
             })
     }
 
+    const change_marry_info = (event) => {
+        const {name, value} = event.target
+        setNewlyweds(prevInfo => ({
+            ...prevInfo,
+            [name]: value
+        }))
+    }
 
+    const send_invitation = (event) => {
+        event.preventDefault()
+        axios.post(`${myIP}/banket/events/${JSON.parse(localStorage.getItem('current_event'))}/send-invitations/`, {
+            "man_fullname": newlyweds.man_fullname,
+            "women_fullname": newlyweds.women_fullname,
+        }, {
+            headers: {
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken'))}`
+            }
+        })
+            .then(() => {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                })
+            })
+            .catch(err => {
+                if (!eventInfo.data) alert("Укажите дату")
+            })
+
+    }
     useEffect(() => {
         if (!props.auth) {
             navigate('/')
         }
     }, [props.auth])
 
-    console.log(newOrder)
     return (
 
         <div className="hall">
 
-
             <div className="hall_event_info">
-                <div className="event_name">
 
+                {eventInfo.event_type ?
+                    <div className="event_name">
 
-                    <p aria-label="CodePen">
-                        {[...eventInfo.event_type].map((el) => {
-                            return(
-                                <span data-text={el}>{el}</span>
-                            )
-                        })}
-                    </p>
-                </div>
+                        <p aria-label="CodePen">
+                            {[...eventInfo.event_type].map((el) => {
+                                return (
+                                    <span data-text={el}>{el}</span>
+                                )
+                            })}
+                        </p>
+                    </div> :
+                    <div className= "loader_container" >
+                        {/*<div className="loader" style="--b: 20px;--c:#000;width:80px;--n:15;--g:7deg"></div>*/}
+                        <h3>Загрузка данных...</h3>
+                        <div className="loader"></div>
+                    </div>
+                }
 
                 {/*<h1 className="event_type">{eventInfo.event_type}</h1>*/}
                 <br/>
@@ -461,6 +501,7 @@ const Hall = (props) => {
                     </select>
                     <input
                         type="date"
+                        min={currentDate}
                         value={eventInfo.date_planned}
                         onChange={event => change_event(event, {'date_planned': event.target.value})}
                     />
@@ -558,7 +599,7 @@ const Hall = (props) => {
                 {guest}
             </div>
             {showChange && <div className="change_seats">
-                <form onSubmit={change_seat_submit} action="">
+                <form className="change_seat" onSubmit={change_seat_submit} action="">
                     <input
                         type="text"
                         placeholder="Укажите место"
@@ -628,6 +669,33 @@ const Hall = (props) => {
                 />
                 <input type="submit"/>
             </form>
+
+            {eventInfo.event_type === "WEDDING" &&
+                <div className="send_invite_container">
+                    <form className="send_invite" onSubmit={send_invitation}>
+                        <h2>Приглашения</h2>
+                        <input
+                            type="text"
+                            name="man_fullname"
+                            placeholder="Имя и фамилия жениха"
+                            required="required"
+                            onChange={change_marry_info}
+                        />
+                        <input
+                            type="text"
+                            name="women_fullname"
+                            placeholder="Имя и фамилия невесты"
+                            required="required"
+                            onChange={change_marry_info}
+                        />
+                        <input
+                            type="submit"
+                            value="Отправить приглашения"
+                        />
+                    </form>
+                </div>
+            }
+
 
         </div>
     );
