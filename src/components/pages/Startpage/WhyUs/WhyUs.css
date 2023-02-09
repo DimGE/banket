@@ -21,7 +21,7 @@
 .why--cards{
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
+    
     /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr;*/
     gap: 150px;
     justify-content: center;

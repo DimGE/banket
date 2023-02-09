@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css"
 import footer from "../../img/StartPageImg/footer.png"
-import map from "../../img/map.bmp"
+// import map from "../../img/map.bmp"
 
 
 const Footer = () => {

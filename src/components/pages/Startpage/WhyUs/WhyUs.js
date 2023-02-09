@@ -12,26 +12,26 @@ const WhyUs = () => {
                 <h1 className="why--text">Почему именно мы:</h1>
                 <div className="why--cards">
 
-                    <div className="card">
+                    <div className="card animate__animated  animate__fadeInUp wow" data-wow-delay="0.1s">
                         <img className="card--img" src={geopoz} alt=""/>
                         <p className="card--text">Удобное расположение</p>
                     </div>
 
-                    <div className="card">
+                    <div className="card animate__animated  animate__fadeInUp wow" data-wow-delay="0.2s">
                         <img className="card--img" src={money} alt=""/>
                         <p className="card--text">Доступные цены</p>
                     </div>
 
-                    <div className="card">
+                    <div className="card animate__animated  animate__fadeInUp wow" data-wow-delay="0.3s">
                         <img className="card--img" src={man} alt=""/>
                         <p className="card--text">Приятное обслуживание</p>
                     </div>
-                    <div className="card">
+                    <div className="card animate__animated  animate__fadeInUp wow" data-wow-delay="0.4s">
                         <img className="card--img" src={flame} alt=""/>
                         <p className="card--text">Индивидуальный подход</p>
                     </div>
 
-                    <div className="card">
+                    <div className="card animate__animated  animate__fadeInUp wow" data-wow-delay="0.5s">
                         <img className="card--img" src={flame} alt=""/>
                         <p className="card--text">Лучшие воспоминания</p>
                     </div>
